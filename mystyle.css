@@ -2,27 +2,106 @@
     margin: 0;
     padding: 0;
 }
-.box{
-    position: absolute;
-    background-color: red;
-    width: 150px;
-    height: 250px;
-    top: 500px;
-    left: 500px;
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
 }
-.box div{
+:root{
+    --tank--body--color: #96957e;
+    --whell--background--color: #333333;
+    --rim--background--color: #555555;
+    --ball--shot--color: #333333;
+}
+.tank-container{
+    position: absolute;
+}
+.top-body-first{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
     width: 100px;
-    height: 100px;
-    background-color: blue;
-
+    height: 25px;
+    margin-left: 45px;
 }
-.ball{
+.top-body-first .body{
+    width: 40px;
+    background-color: var(--tank--body--color);
+    height: 30px;
+    border-radius: 20px 20px 0 0;
+    border: 5px groove black;
+}
+.top-body-first .ball-shot{
     width: 50px;
-    height: 50px;
-    background-color: black;
-    border-radius: 50%;
+    height: 15px;
+    background-color: var(--ball--shot--color);
+    margin-left: -5px;
+    border-radius: 0 5px 5px 0;
+}
+.top-body-second{
+    width: 85px;
+    height: 18px;
+    background-color: var(--tank--body--color);
+    margin-left: 25px;
+    border: 7px groove black;
+    border-bottom-style: none;
+    border-radius: 15px 15px 0 0 ;
+}
+.bottom-body{
+    background-color: var(--tank--body--color);
+    width: 150px;
+    height: 55px;
+    border-radius: 15px 15px 40px 40px;
+    border: 10px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.whell-1,
+.whell-2,
+.whell-3,
+.whell-4,
+.whell-5{
+    width: 18px;
+    background-color: var(--whell--background--color);
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
     position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
+}
+.rim-1,
+.rim-2,
+.rim-3,
+.rim-4,
+.rim-5{
+    width: 7px;
+    height: 7px;
+    background-color: var(--rim--background--color);
+    border-radius: 2px;
+}
+.whell-1{
+    top: 5px;
+    left: 10px;
+}
+.whell-2{
+    top: 30px;
+    left: 30px;
+}
+.whell-3{
+    top: 30px;
+    left: 65px;
+}
+.whell-4{
+    top: 30px;
+    left: 100px;
+}
+.whell-5{
+    top: 5px;
+    left: 120px;
 }

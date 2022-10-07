@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
     "env": {
         "browser": true,
@@ -15,3 +16,4 @@ module.exports = {
             "quotes": ["error", "double"]
         }
 };
+/* eslint-enable */
