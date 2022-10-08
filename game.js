@@ -1,11 +1,6 @@
-function startGame(){
-    console.log("osman");
-}
-startGame();
 const tank = document.querySelector(".tank-container");
 const fireBall = document.querySelector(".fire-ball");
 fireBall.style.display = "none";
-
 window.onkeydown = function(){
     let tankLeftCorner = tank.offsetLeft;
     let tankTopCorner = tank.offsetTop; 
@@ -65,7 +60,7 @@ function fireAnimation(){
             fireBall.style.boxShadow = "none";
             fireBall.style.display = "none";
         }
-    },50);
+    },60);
 }}
 document.addEventListener("mousemove", (e)=>{
     const tankRect = tank.getBoundingClientRect();
@@ -73,7 +68,9 @@ document.addEventListener("mousemove", (e)=>{
     let yCenter = tankRect.top + (tankRect.height/2);
     let rad = Math.atan2(e.x - xCenter , e.y - yCenter );
     let deg = ((rad * (180/ Math.PI)) * -1)+180;
-    if(fireBall.style.display === "none"){
-    tank.style.transform = `rotate(${deg}deg)`;}
-});
+        if(fireBall.style.display === "none"){
+        tank.style.transform = `rotate(${deg}deg)`;
+        }
+    }
+);
 
