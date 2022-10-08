@@ -5,8 +5,6 @@ startGame();
 const tank = document.querySelector(".tank-container");
 const fireBall = document.querySelector(".fire-ball");
 fireBall.style.display = "none";
-let checkMouseMove = true;
-
 
 window.onkeydown = function(){
     let tankLeftCorner = tank.offsetLeft;
@@ -35,7 +33,6 @@ window.onkeydown = function(){
     }
     else if(keyCode === 32){
         fireAnimation();
-
     }
 };
 function addFireAudio(){
@@ -48,7 +45,6 @@ document.addEventListener("click",fireAnimation);
 function fireAnimation(){
     if(fireBall.style.display === "none"){
     addFireAudio();
-    checkMouseMove = false;
     let fireAnimationTimerValue = 15;
     const ballShotArea = document.querySelector(".ball-shot-area");
     let ballShotOffSetLeft = ballShotArea.offsetLeft;
@@ -56,6 +52,7 @@ function fireAnimation(){
     fireBall.style.left = `${ballShotOffSetLeft}px`;
     const fireAnimationInterval = setInterval(function(){ //eslint-disable-line
         if(fireAnimationTimerValue >0){
+
             fireAnimationTimerValue--;
             ballShotOffSetLeft+=15;
             fireBall.style.left = `${ballShotOffSetLeft}px`;
@@ -70,14 +67,13 @@ function fireAnimation(){
         }
     },50);
 }}
-function checkMouseMoveSituation(){
-    if(checkMouseMove === true){
 document.addEventListener("mousemove", (e)=>{
     const tankRect = tank.getBoundingClientRect();
     let xCenter = tankRect.left + (tankRect.width/2);
     let yCenter = tankRect.top + (tankRect.height/2);
     let rad = Math.atan2(e.x - xCenter , e.y - yCenter );
     let deg = ((rad * (180/ Math.PI)) * -1)+180;
-    tank.style.transform = `rotate(${deg}deg)`;
-});}}
-checkMouseMoveSituation();
+    if(fireBall.style.display === "none"){
+    tank.style.transform = `rotate(${deg}deg)`;}
+});
+
