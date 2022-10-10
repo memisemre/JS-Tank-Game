@@ -1,5 +1,4 @@
-/* eslint-disable */
-module.exports = {
+module.exports = { // eslint-disable-line
     "env": {
         "browser": true,
         "es2021": true
@@ -16,4 +15,4 @@ module.exports = {
             "quotes": ["error", "double"]
         }
 };
-/* eslint-enable */
+

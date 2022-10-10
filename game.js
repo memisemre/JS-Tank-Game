@@ -1,5 +1,6 @@
 const tank = document.querySelector(".tank-container");
 const fireBall = document.querySelector(".fire-ball");
+const tarretOne = document.querySelector(".tarret-1");
 fireBall.style.display = "none";
 window.onkeydown = function(){
     let tankLeftCorner = tank.offsetLeft;
@@ -31,25 +32,31 @@ window.onkeydown = function(){
     }
 };
 function addFireAudio(){
-    // document.body.addEventListener("click", () => {
     const audio = document.querySelector(".audio");
     audio.volume = 0.2;
     audio.play();
 }
 document.addEventListener("click",fireAnimation);
 function fireAnimation(){
+    let tarretRect = tarretOne.getBoundingClientRect();
+        let tarretOneXCenter = Math.ceil(tarretRect.left + (tarretRect.width/2));
     if(fireBall.style.display === "none"){
     addFireAudio();
-    let fireAnimationTimerValue = 15;
     const ballShotArea = document.querySelector(".ball-shot-area");
+    let fireAnimationTimerValue = 250;
     let ballShotOffSetLeft = ballShotArea.offsetLeft;
     fireBall.style.display = "flex";
     fireBall.style.left = `${ballShotOffSetLeft}px`;
     const fireAnimationInterval = setInterval(function(){ //eslint-disable-line
         if(fireAnimationTimerValue >0){
-
+            let fireBallRect = fireBall.getBoundingClientRect();
+            let ceilFireBallX = Math.ceil(fireBallRect.x);
+            if(tarretOneXCenter == ceilFireBallX){
+                console.log("hedef vuruldu.");
+                tarretOne.style.display = "none";
+            }
             fireAnimationTimerValue--;
-            ballShotOffSetLeft+=15;
+            ballShotOffSetLeft+=1;
             fireBall.style.left = `${ballShotOffSetLeft}px`;
             ballShotArea.style.borderRight = "10px solid #ff7d56";
             fireBall.style.boxShadow = "10px 10px 100px 25px rgba(66, 66, 66, 1)";
@@ -60,7 +67,7 @@ function fireAnimation(){
             fireBall.style.boxShadow = "none";
             fireBall.style.display = "none";
         }
-    },60);
+    },1);
 }}
 document.addEventListener("mousemove", (e)=>{
     const tankRect = tank.getBoundingClientRect();
@@ -69,8 +76,9 @@ document.addEventListener("mousemove", (e)=>{
     let rad = Math.atan2(e.x - xCenter , e.y - yCenter );
     let deg = ((rad * (180/ Math.PI)) * -1)+180;
         if(fireBall.style.display === "none"){
-        tank.style.transform = `rotate(${deg}deg)`;
+        tank.style.transform = `rotate(${deg - 80}deg)`;
         }
     }
 );
+
 

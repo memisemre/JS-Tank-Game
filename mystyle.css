@@ -8,35 +8,98 @@ body{
     justify-content: center;
     width: 100%;
     height: 100vh;
+    background-color: var(--background--color);
 }
 :root{
     --tank--body--color: #96957e;
     --whell--background--color: #333333;
     --rim--background--color: #555555;
     --ball--shot--color: #333333;
+    --background--color:  #848f4b;
+    --level--area--background--color: #a0acb2;
 }
-.tank-container{
+img{
     position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 250px;
+}
+/* logo */
+/* game area */
+.game-area-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background--color);
+}
+.level-1{
+    border: 3px solid white;
+    width: 500px;
+    height: 300px;
+    background-color: var(--level--area--background--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.level-2,
+.level-3,
+.level-4,
+.level-5{
+    display: flex;
+    width: 400px;
+    height: 300px;
+    background-color: var(--level--area--background--color);
+}
+.tarret-1{
+    position: absolute;
+    top: 50%;
+    left: 500px;
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: red;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-dot{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+}
+/* game area */
+/* tank */
+.tank-container{
+    /* display: none;  */
+    position: absolute;
+    left: 250px;
+    top: 48%;
+    transform: translateY(-50%);
 }
 .top-body-first{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 100px;
-    height: 25px;
-    margin-left: 45px;
+    width: 75px;
+    height: 15px;
+    margin-left: 35px;
 }
 .top-body-first .body{
-    width: 40px;
+    width: 20px;
     background-color: var(--tank--body--color);
-    height: 30px;
+    height: 20px;
     border-radius: 20px 20px 0 0;
     border: 5px groove black;
 }
 .top-body-first .ball-shot-area{
-    width: 50px;
-    height: 15px;
+    width: 30px;
+    height: 8px;
     background-color: var(--ball--shot--color);
     margin-left: -5px;
     border-radius: 0 5px 5px 0;
@@ -49,8 +112,8 @@ body{
     position: absolute;
 }
 .top-body-second{
-    width: 85px;
-    height: 18px;
+    width: 55px;
+    height: 8px;
     background-color: var(--tank--body--color);
     margin-left: 25px;
     border: 7px groove black;
@@ -59,8 +122,8 @@ body{
 }
 .bottom-body{
     background-color: var(--tank--body--color);
-    width: 150px;
-    height: 55px;
+    width: 100px;
+    height: 35px;
     border-radius: 15px 15px 40px 40px;
     border: 10px solid black;
     display: flex;
@@ -73,9 +136,9 @@ body{
 .whell-3,
 .whell-4,
 .whell-5{
-    width: 18px;
+    width: 10px;
     background-color: var(--whell--background--color);
-    height: 18px;
+    height: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,18 +160,34 @@ body{
     left: 10px;
 }
 .whell-2{
-    top: 30px;
-    left: 30px;
+    top: 20px;
+    left: 20px;
 }
 .whell-3{
-    top: 30px;
-    left: 65px;
+    top: 20px;
+    left: 45px;
 }
 .whell-4{
-    top: 30px;
-    left: 100px;
+    top: 20px;
+    left: 70px;
 }
 .whell-5{
     top: 5px;
-    left: 120px;
+    left: 80px;
+}
+/* tank */
+.footer-container{
+    width: 60%;
+    height: 6vh;
+    background-color: #73777B;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon img{
+    width: 64px;
+    height: 64px;
 }
