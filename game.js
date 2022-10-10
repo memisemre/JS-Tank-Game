@@ -8,6 +8,11 @@ const levelOneWalls = document.querySelector(".level-1-walls");
 const levelTwoWalls = document.querySelector(".level-2-walls");
 const levelThreeWalls = document.querySelector(".level-3-walls");
 const levelFourWalls = document.querySelector(".level-4-walls");
+document.querySelector(".start-btn").onclick = function(){
+    document.querySelector(".home-page-container").style.display = "none";
+    document.querySelector(".game-area-container").style.display = "flex";
+    tank.style.opacity = "1";
+};
 fireBall.style.display = "none";
 window.onkeydown = function(){
     let tankLeftCorner = tank.offsetLeft;
@@ -33,9 +38,6 @@ window.onkeydown = function(){
         movementValue = tankLeftCorner+10;
         tank.style.left = `${movementValue}px`;
         movementValue = 0;
-    }
-    else if(keyCode === 32){
-        fireAnimation();
     }
 };
 function addFireAudio(){
